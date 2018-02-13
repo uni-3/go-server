@@ -1,0 +1,10 @@
+version: '2'
+services:
+  getter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/go/src/bitbucket.org/datasectiondl/echo_server
+      - ./dev/.ssh:/root/.ssh
+    command: go run cmd/main.go -endpoint=http://localhost:8080
